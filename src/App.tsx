@@ -3,6 +3,7 @@ import EryxionWebsite from "./components/ErixiyonWebsite";
 import { useState, useEffect } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import logo from "./assets/EryxionLogo.jpeg";
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -50,6 +51,7 @@ function App() {
               animate={{ opacity: 1 }}
             >
               <EryxionWebsite />
+              <Analytics />
             </motion.div>
           )}
         </AnimatePresence>
