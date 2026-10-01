@@ -15,7 +15,7 @@ export const OurStory = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="relative mx-auto max-w-7xl px-6 py-24"
+      className="relative site-container py-24"
     >
 
       <div className="grid items-start gap-16 lg:grid-cols-[0.9fr_1.1fr]">

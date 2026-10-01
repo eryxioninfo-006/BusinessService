@@ -42,7 +42,7 @@ export const Portfolio = () => {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.7 }}
-      className="relative mx-auto max-w-7xl px-6 py-24"
+      className="relative site-container py-24"
     >
 
       {/* Header */}

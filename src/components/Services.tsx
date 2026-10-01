@@ -57,7 +57,7 @@ export const Services = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="relative mx-auto max-w-7xl px-6 py-20 lg:py-28"
+      className="relative site-container py-20 lg:py-28"
     >
 
       {/* Heading */}
