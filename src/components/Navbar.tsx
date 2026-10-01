@@ -23,7 +23,7 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#D4AF37]/10 bg-black/80 backdrop-blur-2xl">
-      <div className="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-6">
+      <div className="site-container flex h-16 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
           {/* <div className="h-2.5 w-2.5 rounded-full bg-[#D4AF37] shadow-[0_0_25px_rgba(212,175,55,0.8)]" /> */}

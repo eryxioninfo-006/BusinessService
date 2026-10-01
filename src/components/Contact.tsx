@@ -23,7 +23,7 @@ export const Contact = () => {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.7 }}
-      className="relative mx-auto max-w-7xl px-6 py-24"
+      className="relative site-container py-24"
     >
 
       <div className="overflow-hidden rounded-[36px] border border-[#D4AF37]/10 bg-[#111111] p-10 lg:p-16">

@@ -9,14 +9,24 @@ export const LandingPage = () => {
     <motion.section
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      animate={
+        isInView
+          ? { opacity: 1, y: 0 }
+          : { opacity: 0, y: 50 }
+      }
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="relative overflow-hidden bg-black text-white"
+      className="relative min-h-screen overflow-hidden bg-black text-white"
     >
+      {/* Background Glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute left-[10%] top-[20%] h-[500px] w-[500px] rounded-full bg-[#D4AF37]/5 blur-[160px]" />
+        <div className="absolute right-[5%] top-[10%] h-[600px] w-[600px] rounded-full bg-[#D4AF37]/10 blur-[180px]" />
+      </div>
 
-      <div className="mx-auto grid min-h-[88vh] max-w-7xl items-center gap-10 px-6 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-20">
+      <div className="relative grid min-h-[calc(100svh-4rem)] w-full items-center gap-12 px-6 py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-10 lg:px-8 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] xl:gap-16 2xl:gap-20">
         {/* LEFT */}
-        <div className="relative z-10">
+
+        <div className="relative z-10 min-w-0">
           {/* Badge */}
           <div className="inline-flex items-center gap-3 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/5 px-4 py-2 backdrop-blur-xl">
             <div className="h-2 w-2 rounded-full bg-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.8)]" />
@@ -27,39 +37,26 @@ export const LandingPage = () => {
           </div>
 
           {/* Heading */}
-          <h1 className="mt-8 max-w-3xl text-[42px] font-extrabold leading-[0.92] tracking-[-0.05em] sm:text-[58px] lg:text-[74px]">
-            Building Elite
-            <span className="bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#FFF8DC] bg-clip-text text-transparent">
-              {" "}
+          <h1 className="mt-8 text-[44px] font-extrabold leading-[1.02] tracking-[-0.05em] sm:text-[58px] md:text-[68px] lg:text-[clamp(48px,4.5vw,86px)]">
+            <span className="block">Building Elite</span>
+            <span className="block bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#FFF8DC] bg-clip-text text-transparent">
               Digital Experiences
             </span>
-            <br />
-            For Visionary
-            <br />
-            Brands
+            <span className="block">
+              For Visionary <br className="xl:hidden" />Brands
+            </span>
           </h1>
 
           {/* Description */}
-          <p className="mt-8 max-w-xl text-[15px] leading-8 text-white/65">
+          <p className="mt-8 max-w-2xl text-[15px] leading-8 text-white/65 lg:text-[16px]">
             Eryxion crafts high-performance digital ecosystems that blend
             strategy, technology, automation, design, and analytics into
             scalable solutions that accelerate business growth and create
             lasting competitive advantage.
           </p>
 
-          {/* CTA */}
-          {/* <div className="mt-10 flex flex-wrap items-center gap-4">
-            <button className="rounded-full bg-[#D4AF37] px-7 py-3 text-sm font-semibold text-black transition duration-300 hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(212,175,55,0.45)]">
-              Start Your Project
-            </button>
-
-            <button className="rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/5 px-7 py-3 text-sm font-medium text-[#D4AF37] transition hover:bg-[#D4AF37]/10">
-              Explore Services
-            </button>
-          </div> */}
-
           {/* Stats */}
-          <div className="mt-10 flex flex-wrap gap-10 border-t border-[#D4AF37]/10 pt-8">
+          <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-[#D4AF37]/10 pt-8 sm:grid-cols-3">
             {[
               {
                 value: "120+",
@@ -87,15 +84,42 @@ export const LandingPage = () => {
           </div>
         </div>
 
+        {/* ===================================================== */}
         {/* RIGHT */}
-        <div className="relative hidden lg:flex lg:justify-end">
-          {/* Glow */}
-          <div className="absolute right-10 top-10 h-[350px] w-[350px] rounded-full bg-[#D4AF37]/15 blur-[140px]" />
+        {/* ===================================================== */}
+
+        <div className="relative hidden min-w-0 items-center justify-end lg:flex">
+          {/* Main Glow */}
+          <div className="absolute right-[10%] top-[15%] h-[500px] w-[500px] rounded-full bg-[#D4AF37]/10 blur-[150px]" />
+
+          {/* Secondary Glow */}
+          <div className="absolute bottom-[10%] left-[15%] h-[300px] w-[300px] rounded-full bg-[#D4AF37]/5 blur-[120px]" />
 
           {/* Dashboard */}
-          <div className="relative w-full max-w-[460px] overflow-hidden rounded-[34px] border border-[#D4AF37]/15 bg-[#111111] shadow-[0_20px_100px_rgba(0,0,0,0.65)]">
-            {/* Header */}
-            <div className="flex items-center justify-between border-b border-[#D4AF37]/10 px-6 py-5">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92, x: 40 }}
+            animate={
+              isInView
+                ? {
+                    opacity: 1,
+                    scale: 1,
+                    x: 0,
+                  }
+                : {
+                    opacity: 0,
+                    scale: 0.92,
+                    x: 40,
+                  }
+            }
+            transition={{
+              duration: 0.9,
+              delay: 0.15,
+              ease: "easeOut",
+            }}
+            className="relative w-full overflow-hidden rounded-[38px] border border-[#D4AF37]/15 bg-[#0D0D0D] shadow-[0_30px_120px_rgba(0,0,0,0.8)]"
+          >
+            {/* Dashboard Header */}
+            <div className="flex items-center justify-between border-b border-[#D4AF37]/10 px-7 py-5">
               <div className="flex items-center gap-2">
                 <div className="h-2.5 w-2.5 rounded-full bg-red-400" />
                 <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
@@ -107,63 +131,120 @@ export const LandingPage = () => {
               </p>
             </div>
 
-            <div className="space-y-5 p-5">
+            {/* Dashboard Content */}
+            <div className="space-y-5 p-6">
               {/* Revenue Card */}
-              <div className="rounded-[28px] border border-[#D4AF37]/15 bg-gradient-to-br from-[#D4AF37]/15 to-[#D4AF37]/5 p-6">
+              <div className="rounded-[30px] border border-[#D4AF37]/15 bg-gradient-to-br from-[#D4AF37]/15 to-[#D4AF37]/5 p-7">
                 <div className="flex items-start justify-between">
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37]">
                       Revenue Growth
                     </p>
 
-                    <h2 className="mt-5 text-6xl font-black tracking-tight">
+                    <h2 className="mt-5 text-6xl font-black tracking-tight xl:text-7xl">
                       240%
                     </h2>
                   </div>
 
-                  <div className="rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-3 py-1 text-xs font-medium text-[#D4AF37]">
+                  <div className="rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-4 py-2 text-xs font-medium text-[#D4AF37]">
                     +18.2%
                   </div>
                 </div>
 
-                <div className="mt-6 h-2 overflow-hidden rounded-full bg-white/5">
-                  <div className="h-full w-[84%] rounded-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F]" />
+                {/* Progress */}
+                <div className="mt-7 h-2 overflow-hidden rounded-full bg-white/5">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={isInView ? { width: "84%" } : { width: 0 }}
+                    transition={{
+                      duration: 1.2,
+                      delay: 0.5,
+                      ease: "easeOut",
+                    }}
+                    className="h-full rounded-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F]"
+                  />
                 </div>
               </div>
 
-              {/* Cards */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-[24px] border border-[#D4AF37]/10 bg-[#161616] p-5">
+              {/* Two Cards */}
+              <div className="grid grid-cols-2 gap-5">
+                <div className="rounded-[26px] border border-[#D4AF37]/10 bg-[#151515] p-6">
                   <p className="text-xs uppercase tracking-[0.2em] text-white/40">
                     Automation
                   </p>
 
-                  <h3 className="mt-3 text-xl font-bold text-[#D4AF37]">
+                  <h3 className="mt-4 text-2xl font-bold text-[#D4AF37]">
                     AI Powered
                   </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-white/40">
+                    Intelligent workflows built for scale.
+                  </p>
                 </div>
 
-                <div className="rounded-[24px] border border-[#D4AF37]/10 bg-[#161616] p-5">
+                <div className="rounded-[26px] border border-[#D4AF37]/10 bg-[#151515] p-6">
                   <p className="text-xs uppercase tracking-[0.2em] text-white/40">
                     Analytics
                   </p>
 
-                  <h3 className="mt-3 text-xl font-bold text-[#D4AF37]">
+                  <h3 className="mt-4 text-2xl font-bold text-[#D4AF37]">
                     Real-Time
                   </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-white/40">
+                    Data-driven business intelligence.
+                  </p>
                 </div>
               </div>
 
-              {/* Description Card */}
-              <div className="rounded-[24px] border border-[#D4AF37]/10 bg-[#161616] p-5">
-                <p className="text-sm leading-7 text-white/65">
+              {/* Description */}
+              <div className="rounded-[26px] border border-[#D4AF37]/10 bg-[#151515] p-6">
+                <div className="flex items-center justify-between">
+                  <p className="text-xs uppercase tracking-[0.2em] text-[#D4AF37]">
+                    Digital Ecosystem
+                  </p>
+
+                  <div className="h-2 w-2 rounded-full bg-[#D4AF37] shadow-[0_0_12px_rgba(212,175,55,0.8)]" />
+                </div>
+
+                <p className="mt-4 max-w-xl text-sm leading-7 text-white/60">
                   Enterprise-grade digital systems designed for ambitious
-                  businesses seeking sustainable growth, operational excellence,
-                  and market leadership.
+                  businesses seeking sustainable growth, operational
+                  excellence, and market leadership.
                 </p>
               </div>
+
+              {/* Bottom Metrics */}
+              <div className="grid grid-cols-3 gap-4">
+                <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-4">
+                  <p className="text-[10px] uppercase tracking-wider text-white/30">
+                    Efficiency
+                  </p>
+                  <p className="mt-2 text-xl font-bold text-white">
+                    +72%
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-4">
+                  <p className="text-[10px] uppercase tracking-wider text-white/30">
+                    Performance
+                  </p>
+                  <p className="mt-2 text-xl font-bold text-white">
+                    +91%
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-4">
+                  <p className="text-[10px] uppercase tracking-wider text-white/30">
+                    Scale
+                  </p>
+                  <p className="mt-2 text-xl font-bold text-white">
+                    4.8x
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.section>
